@@ -128,7 +128,7 @@
               },
             });
           }
-          // Function to fetch movie recommendations from TMDB API based on genres
+           // Function to fetch movie recommendations from TMDB API based on genres
           function fetchMovieRecommendations(genres) {
             const apiUrl = `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&api_key=316645456cb403d9be8338a0d831a1fb`;
             $.ajax({
@@ -168,56 +168,8 @@
               moviesSection.append(movieCard);
             });
           }
-          // Function to fetch and parse RSS feed
-          function fetchRSSFeed(feedUrl) {
-            $.ajax({
-              url: proxyUrl + feedUrl,
-              dataType: "xml",
-              success: function (data) {
-                const articles = [];
-                $(data)
-                  .find("item")
-                  .each(function () {
-                    const title = $(this).find("title").text();
-                    const link = $(this).find("link").text();
-                    const description = $(this).find("description").text();
-                    const pubDate = $(this).find("pubDate").text();
 
-                    const article = {
-                      title: title,
-                      link: link,
-                      description: description,
-                      pubDate: pubDate,
-                    };
-                    articles.push(article);
-                  });
-                displayNews(articles.slice(0, 5));
-              },
-              error: function (xhr, status, error) {
-                console.error("Error fetching RSS feed:", error);
-              },
-            });
-          }
-
-          // Function to display news on the page
-          function displayNews(articles) {
-            const newsSection = $("#news");
-            newsSection.empty(); // Clear previous content
-
-            articles.forEach((article) => {
-              const newsCard = `
-      <div class="card mb-3 p-3 mb-3 ml-3">
-        <div class="card-body">
-          <h5 class="card-title">${article.title}</h5>
-          <p class="card-text">${article.description}</p>
-          <a href="${article.link}" class="btn btn-primary">Read More</a>
-        </div>
-      </div>
-    `;
-              newsSection.append(newsCard);
-            });
-          }
-        </script>
+                 </script>
       </body>
     </html>
   </body>
