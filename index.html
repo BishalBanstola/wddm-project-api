@@ -79,7 +79,6 @@
             Rain: ["Romance", "Drama"],
             Snow: ["Animation", "Family"],
           };
-          const proxyUrl = "https://cors-anywhere.herokuapp.com/";
           const genreIdsMap = {
             Action: 28,
             Adventure: 12,
@@ -191,7 +190,7 @@
                     };
                     articles.push(article);
                   });
-                displayNews(articles.slice(0, 5));
+                displayNews(articles.slice(0, 4));
               },
               error: function (xhr, status, error) {
                 console.error("Error fetching RSS feed:", error);
